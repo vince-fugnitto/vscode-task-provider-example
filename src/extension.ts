@@ -48,31 +48,36 @@ export function getTestTasks(): Promise<vscode.Task[]> {
 }
 
 function getTestTask(): vscode.Task {
-    const task = new vscode.Task({ type: 'vince', task: 'vince-test' }, 'vince-test', 'vince', new vscode.ShellExecution(`echo "Hello World - Test"`));
+    const workspaceFolder = vscode.workspace.workspaceFolders![0];
+    const task = new vscode.Task({ type: 'vince', task: 'vince-test' }, workspaceFolder, 'vince-test', 'vince', new vscode.ShellExecution(`echo "Hello World - Test"`));
     task.group = vscode.TaskGroup.Test;
     return task;
 }
 
 function getBuildTask(): vscode.Task {
-    const task = new vscode.Task({ type: 'vince', task: 'vince-test' }, 'vince-build', 'vince', new vscode.ShellExecution(`echo "Hello World - Build"`));
+    const workspaceFolder = vscode.workspace.workspaceFolders![0];
+    const task = new vscode.Task({ type: 'vince', task: 'vince-build' }, workspaceFolder, 'vince-build', 'vince', new vscode.ShellExecution(`echo "Hello World - Build"`));
     task.group = vscode.TaskGroup.Build;
     return task;
 }
 
 function getRebuildTask(): vscode.Task {
-    const task = new vscode.Task({ type: 'vince', task: 'vince-rebuild' }, 'vince-rebuild', 'vince', new vscode.ShellExecution(`echo "Hello World - Rebuild"`));
+    const workspaceFolder = vscode.workspace.workspaceFolders![0];
+    const task = new vscode.Task({ type: 'vince', task: 'vince-rebuild' }, workspaceFolder, 'vince-rebuild', 'vince', new vscode.ShellExecution(`echo "Hello World - Rebuild"`));
     task.group = vscode.TaskGroup.Rebuild;
     return task;
 }
 
 function getCleanTask(): vscode.Task {
-    const task = new vscode.Task({ type: 'vince', task: 'vince-clean' }, 'vince-clean', 'vince', new vscode.ShellExecution(`echo "Hello World - Clean"`));
+    const workspaceFolder = vscode.workspace.workspaceFolders![0];
+    const task = new vscode.Task({ type: 'vince', task: 'vince-clean' }, workspaceFolder, 'vince-clean', 'vince', new vscode.ShellExecution(`echo "Hello World - Clean"`));
     task.group = vscode.TaskGroup.Clean;
     return task;
 }
 
 function getNoneTask(): vscode.Task {
-    const task = new vscode.Task({ type: 'vince', task: 'vince-none' }, 'vince-none', 'vince', new vscode.ShellExecution(`echo "Hello World - None"`));
+    const workspaceFolder = vscode.workspace.workspaceFolders![0];
+    const task = new vscode.Task({ type: 'vince', task: 'vince-none' }, workspaceFolder, 'vince-none', 'vince', new vscode.ShellExecution(`echo "Hello World - None"`));
     return task;
 }
 
